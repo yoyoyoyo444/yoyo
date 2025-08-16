@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>หน้าหลัก</title>
+  <style>
+    body {
+  margin: 0;
+  padding: 40px;
+  background: url('image/images\ \(2\).jpg') no-repeat center center fixed;
+  background-size: cover;
+  font-family: sans-serif;
+}
+
+
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 30px;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* แถวละ 5 */
+      gap: 15px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+
+    .item {
+      text-align: center;
+    }
+
+    .item img {
+      width: 100%;
+      max-width: 130px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .item img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+    }
+
+    .caption {
+      margin-top: 8px;
+      color: white;
+      font-size: 13px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .grid-container {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>เลือกเกมจากที่ทุกท่านเสนอผมมาครับ
+  </h1>
+
+  <div class="grid-container">
+
+    <!-- รูปที่ 1-20 -->
+    <!-- เปลี่ยนลิงก์และชื่อได้ตามต้องการ -->
+    <!-- ใช้ภาพชื่อ banner1.jpg ถึง banner20.jpg -->
+    <!-- เรียงแบบอัตโนมัติ -->
+
+    <!-- วน 20 อัน -->
+    <!-- ลองเปลี่ยนแค่ลิงก์กับชื่อดูได้เลย -->
+    <!-- หรือใช้ loop + template engine ถ้าใช้ backend -->
+
+    <script>
+      const websites = [
+        { url: "https://th.y8.com/games/the_king_of_fighters_v1_8", name: "The King of Fighters v1.8", img: "ดาวน์โหลด\ \(1\).jpg" },
+        { url: "https://th.y8.com/games/geometry_arrow", name: "Geometry Arrow", img: "ดาวน์โหลด\ \(1\).png" },
+        { url: "https://en.gameslol.net/bleach-vs-naruto-3-3-1397.html", name: "bleach-vs-naruto", img: "ดาวน์โหลด\ \(2\).jpg" },
+        { url: "https://discord.com", name: "Discord", img: "banner4.jpg" },
+        { url: "https://instagram.com", name: "Instagram", img: "banner5.jpg" },
+        { url: "https://twitter.com", name: "Twitter", img: "banner6.jpg" },
+        { url: "https://tiktok.com", name: "TikTok", img: "banner7.jpg" },
+        { url: "https://github.com", name: "GitHub", img: "banner8.jpg" },
+        { url: "https://openai.com", name: "OpenAI", img: "banner9.jpg" },
+        { url: "https://netflix.com", name: "Netflix", img: "banner10.jpg" },
+        { url: "https://steamcommunity.com", name: "Steam", img: "banner11.jpg" },
+        { url: "https://line.me", name: "LINE", img: "banner12.jpg" },
+        { url: "https://reddit.com", name: "Reddit", img: "banner13.jpg" },
+        { url: "https://pinterest.com", name: "Pinterest", img: "banner14.jpg" },
+        { url: "https://zoom.us", name: "Zoom", img: "banner15.jpg" },
+        { url: "https://microsoft.com", name: "Microsoft", img: "banner16.jpg" },
+        { url: "https://apple.com", name: "Apple", img: "banner17.jpg" },
+        { url: "https://amazon.com", name: "Amazon", img: "banner18.jpg" },
+        { url: "https://roblox.com", name: "Roblox", img: "banner19.jpg" },
+        { url: "https://epicgames.com", name: "Epic Games", img: "banner20.jpg" },
+      ];
+
+      const container = document.querySelector(".grid-container");
+
+      websites.forEach(site => {
+        const item = document.createElement("div");
+        item.className = "item";
+        item.innerHTML = `
+          <a href="${site.url}" target="_blank">
+            <img src="image/${site.img}" alt="${site.name}" />
+          </a>
+          <div class="caption">${site.name}</div>
+        `;
+        container.appendChild(item);
+      });
+    </script>
+
+  </div>
+
+</body>
+</html>

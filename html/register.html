@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>หน้าสมัคร</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      background: url('image/images\ \(2\).jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: sans-serif;
+      color: white;
+    }
+
+    .register {
+      width: 350px;
+      padding: 30px;
+      border-radius: 10px;
+      background: url('image/images.jpg') no-repeat center center;
+      background-size: cover;
+      /* ลบ background-attachment: fixed ออก เพื่อให้ภาพเลื่อนตาม */
+      box-shadow: 0 0 15px rgba(0,0,0,0.7);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+      text-shadow: 0 0 3px black;
+    }
+
+    input, button {
+      width: 100%;
+      margin-top: 10px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    input {
+      background-color: rgba(255,255,255,0.2);
+      color: white;
+    }
+
+    input::placeholder {
+      color: #ddd;
+    }
+
+    button {
+      background-color: #2ebf91;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #28a37e;
+    }
+  </style>
+</head>
+<body>
+  <div class="register">
+    <h2>สมัครสมาชิก</h2>
+    <form onsubmit="return handleRegister()">
+      <input type="text" id="regUsername" placeholder="Username" required />
+      <input type="password" id="regPassword" placeholder="Password" required />
+      <button type="submit">สมัคร</button>
+    </form>
+  </div>
+
+  <script>
+    function handleRegister() {
+      const username = document.getElementById("regUsername").value.trim();
+      const password = document.getElementById("regPassword").value.trim();
+
+      // บันทึก username และ password ไว้ที่ localStorage (อันนี้เพื่อทดลอง)
+      localStorage.setItem("savedUsername", username);
+      localStorage.setItem("savedPassword", password);
+
+      alert("สมัครเรียบร้อย! ไปที่หน้าล็อกอินได้เลย");
+      window.location.href = "login.html";  // เปลี่ยนหน้าไป login.html
+      return false; // ป้องกัน form submit ปกติ
+    }
+  </script>
+</body>
+</html>
